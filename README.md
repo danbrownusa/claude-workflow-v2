@@ -21,23 +21,12 @@ A universal Claude Code workflow plugin with specialized agents, skills, hooks, 
 
 ## Installation
 
-### From Local Directory
-
 ```bash
-# Clone or download the plugin
+# Clone the plugin
 git clone https://github.com/CloudAI-X/claude-workflow.git
 
-# Test the plugin locally
+# Run Claude Code with the plugin
 claude --plugin-dir ./claude-workflow
-
-# Or install permanently
-claude plugins install ./claude-workflow
-```
-
-### From Marketplace
-
-```bash
-claude plugins install project-starter
 ```
 
 ## Features
