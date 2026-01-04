@@ -52,6 +52,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/verify-on-complete.py"
+          },
+          {
+            "type": "command",
             "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/notify-complete.sh"
           }
         ]

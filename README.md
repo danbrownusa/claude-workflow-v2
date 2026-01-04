@@ -74,7 +74,7 @@ These commands become available:
 | **Agents** | 7 | Specialized subagents for code review, debugging, security, etc. |
 | **Commands** | 17 | Slash commands for workflows and output styles |
 | **Skills** | 6 | Knowledge domains Claude uses autonomously |
-| **Hooks** | 8 | Automation scripts for formatting, security, notifications |
+| **Hooks** | 9 | Automation scripts for formatting, security, verification, notifications |
 
 ---
 
@@ -272,6 +272,7 @@ Hooks run automatically on specific events.
 | Command logging | Bash | Logs to `.claude/command-history.log` |
 | Environment check | Session start | Validates Node.js, Python, Git |
 | Prompt analysis | User prompt | Suggests appropriate agents |
+| Auto-verify | Task complete | Runs tests/lint, reports results |
 | Input notification | Input needed | Desktop notification |
 | Complete notification | Task complete | Desktop notification |
 
@@ -306,7 +307,37 @@ Then customize with your:
 
 ### MCP Servers
 
-See [mcp-servers-template.md](./mcp-servers-template.md) for common MCP server configurations.
+Copy the MCP template to enable integrations like Slack, GitHub, Sentry:
+
+```bash
+cp templates/mcp.json.template /path/to/your/project/.mcp.json
+```
+
+Then configure the environment variables for the servers you want to use.
+
+### GitHub Action (@.claude in PRs)
+
+Enable Claude to respond to PR comments by installing the GitHub Action:
+
+```bash
+# In your repository
+claude /install-github-action
+```
+
+This enables:
+- Tag `@claude` in PR comments to get code suggestions
+- Auto-update `CLAUDE.md` during code review
+- Claude responds to review feedback automatically
+
+**Example PR comment:**
+```
+@claude please add input validation to the email field
+```
+
+**Team workflow tip:** Use `@claude` to update your `CLAUDE.md` with learnings from code review:
+```
+@claude add a note to CLAUDE.md that we should always validate email format before API calls
+```
 
 ---
 
@@ -398,10 +429,12 @@ claude-workflow/
 │   └── optimizing-performance/
 ├── hooks/
 │   ├── hooks.json            # Hook configuration
-│   └── scripts/              # 8 automation scripts
+│   └── scripts/              # 9 automation scripts
 ├── templates/                # User-copyable templates
 │   ├── CLAUDE.md.template
-│   └── settings.local.json.template
+│   ├── settings.json.template
+│   ├── settings.local.json.template
+│   └── mcp.json.template
 ├── CLAUDE.md                 # Plugin development guidelines
 └── README.md
 ```
