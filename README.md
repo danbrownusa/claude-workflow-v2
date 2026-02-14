@@ -4,23 +4,39 @@
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-v1.0.33+-blue.svg)](https://code.claude.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/CloudAI-X/claude-workflow-v2/pulls)
 
-A universal Claude Code workflow plugin with specialized agents, skills, hooks, and output styles for any software project.
+A universal Claude Code workflow plugin with specialized agents, skills, hooks, and output styles for any software project. Compatible with [skills.sh](https://skills.sh) — works with Claude Code, Cursor, Codex, and 35+ AI agents.
 
 ---
 
 ## Quick Start
 
-### Option 1: CLI (Per-Session)
+### Option 1: skills.sh (Recommended — Any Agent)
+
+```bash
+npx skills add CloudAI-X/claude-workflow-v2
+```
+
+Installs skills to Claude Code, Cursor, Codex, Windsurf, Cline, and 35+ other AI agents automatically.
+
+### Option 2: npx (Claude Code — Full Plugin)
+
+```bash
+npx install-claude-workflow-v2@latest
+```
+
+Installs the complete plugin: agents, commands, skills, and hooks.
+
+### Option 3: CLI (Per-Session)
 
 ```bash
 # Clone the plugin
 git clone https://github.com/CloudAI-X/claude-workflow-v2.git
 
 # Run Claude Code with the plugin
-claude --plugin-dir ./claude-workflow
+claude --plugin-dir ./claude-workflow-v2
 ```
 
-### Option 2: Agent SDK
+### Option 4: Agent SDK
 
 ```typescript
 import { query } from "@anthropic-ai/claude-agent-sdk";
@@ -28,21 +44,21 @@ import { query } from "@anthropic-ai/claude-agent-sdk";
 for await (const message of query({
   prompt: "Hello",
   options: {
-    plugins: [{ type: "local", path: "./claude-workflow" }],
+    plugins: [{ type: "local", path: "./claude-workflow-v2" }],
   },
 })) {
   // Plugin commands, agents, and skills are now available
 }
 ```
 
-### Option 3: Install Permanently
+### Option 5: Install Permanently
 
 ```bash
 # Install from marketplace (when available)
 claude plugin install project-starter
 
 # Or install from local directory
-claude plugin install ./claude-workflow
+claude plugin install ./claude-workflow-v2
 ```
 
 ### Verify Installation
@@ -526,6 +542,23 @@ claude-workflow/
 - **Python 3** (for hook scripts)
 - **Node.js** (optional, for npm commands)
 - **Git** (for version control features)
+
+---
+
+## Multi-Agent Compatibility (skills.sh)
+
+This repo is fully compatible with [skills.sh](https://skills.sh) — the universal agent skills platform. Our 14 skills work with **38+ AI coding agents**:
+
+| Agent           | Install Method                                                       |
+| --------------- | -------------------------------------------------------------------- |
+| **Claude Code** | `npx skills add CloudAI-X/claude-workflow-v2` or full plugin install |
+| **Cursor**      | `npx skills add CloudAI-X/claude-workflow-v2`                        |
+| **Codex**       | `npx skills add CloudAI-X/claude-workflow-v2`                        |
+| **Windsurf**    | `npx skills add CloudAI-X/claude-workflow-v2`                        |
+| **Cline**       | `npx skills add CloudAI-X/claude-workflow-v2`                        |
+| **35+ more**    | `npx skills add CloudAI-X/claude-workflow-v2`                        |
+
+> **Note:** `npx skills add` installs **skills only**. For the full Claude Code experience (agents, commands, hooks), use `npx install-claude-workflow-v2@latest`.
 
 ---
 

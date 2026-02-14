@@ -31,7 +31,23 @@
         "hooks",
         "automation"
       ],
-      "category": "productivity"
+      "category": "productivity",
+      "skills": [
+        "./skills/analyzing-projects",
+        "./skills/convex-backend",
+        "./skills/database-design",
+        "./skills/designing-apis",
+        "./skills/designing-architecture",
+        "./skills/designing-tests",
+        "./skills/devops-infrastructure",
+        "./skills/error-handling",
+        "./skills/managing-git",
+        "./skills/optimizing-performance",
+        "./skills/parallel-execution",
+        "./skills/security-patterns",
+        "./skills/vercel-react-best-practices",
+        "./skills/web-design-guidelines"
+      ]
     }
   ]
 }
